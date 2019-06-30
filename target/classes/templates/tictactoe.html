@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+     <form id="board" th:action="@{/tictactoe}" th:object="${game}" method="post">
+    <table>
+    <tr>
+    <td>
+    <input type="text" th:field="*{cellOne}"/>
+    <input type="button" id="btnOne" th:value="*{cellOne} " onclick="placeMove(this)"/>
+   
+    </td>
+    <td>
+    
+      <input type="button" id="btnTwo" th:value="${game.getCellTwo()}" onclick="placeMove(this)"/>
+     
+ 
+    </td>
+    <td>
+  
+    <input type="button" id="btnThree" th:value="${game.getCellThree()}" onclick="placeMove(this)"/>
+    </td>
+    </tr>
+     <tr>
+    <td>
+     
+      <input type="button" id="btnFour" th:value="${game.getCellFour()}" onclick="placeMove(this)"/>
+    </td>
+    <td>
+   
+     <input type="button" id="btnFive" th:value="${game.getCellFive()}" onclick="placeMove(this)"/>
+    </td>
+    <td>
+     
+      <input type="button" id="btnSix" th:value="${game.getCellSix()}" onclick="placeMove(this)"/>
+    </td>
+    </tr>
+     <tr>
+    <td>
+   
+     <input type="button" id="btnSeven" th:value="${game.getCellSeven()}" onclick="placeMove(this)"/>
+    </td>
+    <td>
+    
+      <input type="button" id="btnEight" th:value="${game.getCellEight()}" onclick="placeMove(this)"/>
+    </td>
+    <td>
+     
+      <input type="button" id="btnNine" th:value="${game.getCellNine()}" onclick="placeMove(this)"/>
+    </td>
+    </tr>
+    </table> 
+ <input type="text" th:field="*{makeMove}"/>
+    <input type="submit" value="Submit move">
+    </form> 
+   
+    
+   
+   <script th:inline="javascript">
+
+   
+       
+       // When button is clicked, place an X or O in button
+        function placeMove(btn) {
+    	   
+    	 
+    	
+    	 document.getElementById(btn.id).value='X';
+    	 
+    	 
+       } 
+      
+       
+       
+       
+</script> 
+</body>
+</html>
